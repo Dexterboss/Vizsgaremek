@@ -1,0 +1,49 @@
+-- KATEGÓRIÁK
+
+INSERT INTO categories (name) VALUES ('Hajápolás'), ('Borotválkozás'), ('Styling'),('Szakállápolás'),('Kiegészítők'),('Parfümök');  
+
+-- MÁRKÁK
+
+INSERT INTO brands (name) VALUES ('Molnár Brand'), ('Premium Care'), ('StylePro'),('BarberKing'),('Gentleman Line'),('Urban Style'),('Classic Barber Co.'),('Elite Grooming'),('Royal Beard'),('SharpEdge'),('Urban Barber Supply'),('GentleTouch'),('ProStyle Products');
+
+-- WEBSHOP TÁRGYAK
+
+INSERT INTO products (name, description, price, image, brand_id, category_id, stock, rating) VALUES ('Hajsampon', 'Minőségi hajsampon', 2500, 'shampoo.jpg', 1, 1, 10, 4.5), ('Borotva', 'Éles borotva', 1500, 'razor.jpg', 2, 2, 5, 4.0), ('Hajwax', 'Styling wax', 3000, 'wax.jpg', 3, 3, 8, 4.8),
+('Professzionális sampon', 'Mélytisztító hajsampon', 3200, 'shampoo2.jpg', 2, 1, 15, 4.6),
+('Hajbalzsam', 'Tápláló balzsam sérült hajra', 2800, 'balm.jpg', 1, 1, 12, 4.4),
+('Borotvahab', 'Krémes borotvahab érzékeny bőrre', 2200, 'foam.jpg', 3, 2, 20, 4.3),
+('Aftershave', 'Frissítő arcszesz borotválkozás után', 2600, 'aftershave.jpg', 2, 2, 10, 4.7),
+('Matt hajwax', 'Természetes hatású wax', 3500, 'wax2.jpg', 1, 3, 18, 4.8),
+('Hajzselé', 'Erős tartású hajzselé', 2000, 'gel.jpg', 3, 3, 25, 4.2),
+('Hajlakk', 'Extra erős fixálás', 2900, 'spray.jpg', 2, 3, 14, 4.5),
+('Szakállolaj', 'Hidratáló olaj szakállra', 4000, 'beard_oil.jpg', 1, 4, 10, 4.9),
+('Szakállbalzsam', 'Formázó balzsam', 3800, 'beard_balm.jpg', 2, 4, 8, 4.7),
+('Szakállkefe', 'Természetes sörtéjű kefe', 2500, 'beard_brush.jpg', 3, 4, 12, 4.4),
+('Fésű', 'Professzionális fésű', 1200, 'comb.jpg', 1, 5, 30, 4.1),
+('Hajvágó olló', 'Rozsdamentes acél olló', 7500, 'scissors.jpg', 2, 5, 5, 4.8),
+('Törölköző', 'Puha barber törölköző', 1800, 'towel.jpg', 3, 5, 20, 4.3),
+('Férfi parfüm Classic', 'Elegáns fás illat', 9000, 'perfume1.jpg', 1, 6, 6, 4.9),
+('Férfi parfüm Sport', 'Friss citrusos illat', 8500, 'perfume2.jpg', 2, 6, 7, 4.6),
+('Luxus parfüm', 'Prémium illat', 12000, 'perfume3.jpg', 3, 6, 4, 5.0);
+
+-- HAIRDRESSERS
+
+INSERT INTO hairdressers (id, name, image, position, bio, active) VALUES 
+(1, 'Molnár István', '../images/hairdressers/molnar_istvan.jpg', 'Főborbély, szakmai vezető', '15 év tapasztalat, klasszikus technikák specialistája', 1),
+(2, 'Kiss Gábor', '../images/hairdressers/kiss_gabor.jpg', 'Borbélymester', 'Modern stílusok és fade technikák mestere', 1),
+(3, 'Nagy Péter', '../images/hairdressers/nagy_peter.jpg', 'Borbély', 'Szakáll styling és arcápolás szakértő', 1),
+(4, 'Szabó András', '../images/hairdressers/szabo_andras.jpg', 'Senior borbély', 'Gyerekek, tinédzserek kedvence, 10 év tapasztalat', 1),
+(5, 'Kiss Andrea', '../images/hairdressers/kiss_andrea.jpg', 'Borbély asszisztens', 'Fiatal tehetség, modern trendek követője', 1);
+
+-- SERVICES
+
+INSERT INTO services (name, description, features, price_min, price_max, duration) VALUES 
+('Hajvágás', 'Modern és klasszikus hajvágási technikák minden korosztálynak. Professzionális borbélyok, akik tökéletesen megértik az igényeidet.', 'Személyre szabott konzultáció, Modern fazonok, Hajmosás, Styling tanácsok', 4500, 6500, 45),
+
+('Szakáll Ápolás', 'Teljes körű szakáll ápolás, formázás, borotválás klasszikus stílusban. Prémium termékekkel.', 'Szakáll trimmelés, Klasszikus borotválás, Meleg törölköző, Szakáll ápolók', 3500, 5500, 30),
+
+('Arckezelés', 'Frissítő és relaxáló arckezelések férfiaknak. Tisztító, hidratáló és revitalizáló kezelések.', 'Mélytisztítás, Masszázs, Hidratáló maszk, Bőrápoló tanácsadás', 6000, 8500, 40),
+
+('Hajstyling', 'Professzionális hajstyling szolgáltatások különleges alkalmakra vagy mindennapi használatra.', 'Alkalmi styling, Technikák, Termék ajánlások, Tanácsadás', 3000, 5000, 20),
+
+('Festés & Melír', 'Professzionális hajfestés, szőkítés és melír szolgáltatások prémium minőségű termékekkel.', 'Teljes hajfestés, Melír és ombre, Ősz haj fedése, Színtanácsadás', 8000, 15000, 90);
