@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ===== COLOR VARIABLES ===== */
+:root {
+  --brown: #593a11;
+  --gold: #c6a15b;
+  --dark: #1a140b;
+  --white: #faf8f3;
+  --accent: #e0c67d;
+  --grey: #5a431b;
+  --red: #ff3333;
+  --green: #acb232;
+  --star: #f4b400;
+
+  --brown-transparent: rgba(26, 20, 11, 0.95);
+  --brown-transparent-light: rgba(26, 20, 11, 0.05);
+  --gold-alpha: rgba(202, 161, 91, 0.3);
+  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+  --modal-bg: rgba(0, 0, 0, 0.8);
+
+  --gradient-main: linear-gradient(135deg, var(--brown) 0%, var(--gold) 100%);
+  --gradient-btn: linear-gradient(135deg, var(--gold), var(--brown));
+  --gradient-btn-hover: linear-gradient(135deg, var(--accent), var(--gold));
+  --gradient-progress: linear-gradient(90deg, var(--gold), var(--accent));
+  --gradient-logout: linear-gradient(135deg, var(--red) 0%, #a00000 100%);
+  --gradient-logout-hover: linear-gradient(135deg, var(--brown), var(--dark));
+  --gradient-login: linear-gradient(135deg, var(--green) 0%, #394d16 100%);
+  --gradient-login-hover: linear-gradient(135deg, var(--brown), var(--dark));
+  --gradient-hero: linear-gradient(135deg, rgba(26, 20, 11, 0.7), rgba(89, 58, 17, 0.5));
+  --gradient-light: linear-gradient(135deg, var(--white) 0%, var(--accent) 100%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--white);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.terms-container {
+    max-width: 940px;
+    margin: 40px auto;
+    padding: 25px;
+    background: var(--white);
+    border: 1px solid var(--gold-alpha);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.terms-container h1 {
+    color: var(--brown);
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+
+.terms-container h2 {
+    color: var(--brown);
+    font-size: 1.25rem;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 5px;
+}
+
+.terms-container p,
+.terms-container li,
+.terms-container a {
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+.terms-container ul,
+.terms-container ol {
+    margin-left: 22px;
+    margin-top: 10px;
+}
+
+.terms-container li {
+    margin-bottom: 8px;
+}
+
+.terms-container a {
+    color: var(--brown);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.terms-container a:hover {
+    text-decoration: underline;
+}
+
+.terms-back {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--accent);
+    color: var(--dark) !important;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.terms-back:hover {
+    background: var(--brown);
+    color: var(--white) !important;
+}
+
+@media (max-width: 768px) {
+    .terms-container {
+        margin: 20px;
+        padding: 16px;
+    }
+
+    .terms-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .terms-container h2 {
+        font-size: 1.1rem;
+    }
+}
