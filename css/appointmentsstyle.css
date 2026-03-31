@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ===== COLOR VARIABLES ===== */
+:root {
+  --brown: #593a11;
+  --gold: #c6a15b;
+  --dark: #1a140b;
+  --white: #faf8f3;
+  --accent: #e0c67d;
+  --grey: #5a431b;
+  --red: #ff3333;
+  --green: #acb232;
+  --star: #f4b400;
+
+  --brown-transparent: rgba(26, 20, 11, 0.95);
+  --brown-transparent-light: rgba(26, 20, 11, 0.05);
+  --gold-alpha: rgba(202, 161, 91, 0.3);
+  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+  --modal-bg: rgba(0, 0, 0, 0.8);
+
+  --gradient-main: linear-gradient(135deg, var(--brown) 0%, var(--gold) 100%);
+  --gradient-btn: linear-gradient(135deg, var(--gold), var(--brown));
+  --gradient-btn-hover: linear-gradient(135deg, var(--accent), var(--gold));
+  --gradient-progress: linear-gradient(90deg, var(--gold), var(--accent));
+  --gradient-logout: linear-gradient(135deg, var(--red) 0%, #a00000 100%);
+  --gradient-logout-hover: linear-gradient(135deg, var(--brown), var(--dark));
+  --gradient-login: linear-gradient(135deg, var(--green) 0%, #394d16 100%);
+  --gradient-login-hover: linear-gradient(135deg, var(--brown), var(--dark));
+  --gradient-hero: linear-gradient(135deg, rgba(26, 20, 11, 0.7), rgba(89, 58, 17, 0.5));
+  --gradient-light: linear-gradient(135deg, var(--white) 0%, var(--accent) 100%);
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--gradient-main);
+  color: var(--dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION (BAL OLDAL) ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100vh;
+  background: var(--brown-transparent);
+  backdrop-filter: blur(10px);
+  z-index: 998;
+  transition: width 0.3s;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+header:hover {
+  width: 240px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 5px 15px;
+}
+
+.logo-div {
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.logo-div::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  border-bottom: 1px solid var(--gold-alpha);
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  text-decoration: none;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+}
+
+.logo span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+  height: 2.3em;
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  color: var(--accent);
+  pointer-events: none;
+  transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+header:hover .logo span {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.3s;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 8px;
+  color: var(--accent);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: var(--gold-alpha);
+  color: var(--accent);
+  box-shadow: 0 0 10px var(--gold-alpha);
+}
+
+.menu a i {
+  font-size: 1.4rem;
+  min-width: 28px;
+  text-align: center;
+}
+
+.menu a span {
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+header:hover .menu a span {
+  opacity: 1;
+}
+
+.nav-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--gold-alpha);
+}
+
+.cta-btn {
+  background: var(--gradient-btn);
+  color: var(--dark) !important;
+  font-weight: 700;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 8px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.cta-btn:hover {
+  background: var(--gradient-btn-hover);
+  transform: translateY(-2px);
+  color: var(--gold) !important;
+}
+
+.logout-btn {
+  background: var(--gradient-logout);
+  color: var(--dark) !important;
+  font-weight: 700;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 8px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background: var(--gradient-logout-hover);
+  color: var(--red) !important;
+  transform: translateY(-2px);
+}
+
+.login-btn {
+  background: var(--gradient-login);
+  color: var(--dark) !important;
+  font-weight: 700;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 8px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  background: var(--gradient-login-hover);
+  color: var(--green) !important;
+  transform: translateY(-2px);
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  margin-left: 60px;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.appointments-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.appointments-container h1 {
+  text-align: center;
+  color: var(--brown);
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* ===== BOOKING STEPS ===== */
+.booking-steps {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.step-text {
+  font-size: 0.9rem;
+  color: var(--dark);
+  text-align: center;
+}
+
+/* ===== BOOKING CONTENT ===== */
+.booking-content {
+  min-height: 400px;
+}
+
+.date-selection {
+  background: var(--white);
+  border: 1px solid var(--gold-alpha);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px var(--shadow);
+  text-align: center;
+}
+
+.date-selection h2 {
+  color: var(--brown);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.date-picker {
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border: 2px solid var(--gold-alpha);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--dark);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.date-picker:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== FODRÁSZOK SZAKASZ ===== */
+.hairdressers-section h2 {
+  color: var(--brown);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.hairdresser-section {
+  background: var(--white);
+  border: 1px solid var(--gold-alpha);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.hairdresser-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--gold-alpha);
+}
+
+.hairdresser-header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+}
+
+.hairdresser-header h3 {
+  color: var(--brown);
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.time-slot-btn {
+  padding: 8px 12px;
+  border: 2px solid var(--gold-alpha);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--dark);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.time-slot-btn:hover:not(.booked) {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--dark);
+}
+
+.time-slot-btn.booked {
+  background: var(--grey);
+  color: var(--white);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===== SZOLGÁLTATÁSOK SZAKASZ ===== */
+.services-section h2 {
+  color: var(--brown);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.service-item {
+  background: var(--white);
+  border: 2px solid var(--gold-alpha);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.service-item:hover,
+.service-item.selected {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+.service-info h4 {
+  color: var(--brown);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.service-info p {
+  color: var(--dark);
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.select-service-btn {
+  background: var(--gradient-btn);
+  color: var(--dark);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.select-service-btn:hover {
+  background: var(--gradient-btn-hover);
+  transform: translateY(-2px);
+}
+
+/* ===== BOOKING ACTIONS ===== */
+.booking-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-back,
+.btn-confirm {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-back {
+  background: var(--grey);
+  color: var(--white);
+}
+
+.btn-back:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+.btn-confirm {
+  background: var(--green);
+  color: var(--white);
+}
+
+.btn-confirm:hover {
+  background: #7a9b28;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .appointments-container {
+    padding: 20px;
+  }
+
+  .appointments-container h1 {
+    font-size: 2rem;
+  }
+
+  .booking-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .services-grid,
+  .hairdressers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .time-slots {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .booking-navigation {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .booking-actions {
+    flex-direction: column;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-step {
+  animation: fadeIn 0.5s ease;
+}
